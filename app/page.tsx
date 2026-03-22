@@ -16,6 +16,18 @@ const FAQ = [
   },
 ];
 
+const websiteJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "전월세",
+  "url": "https://jeonwolse-drab.vercel.app",
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": "https://jeonwolse-drab.vercel.app/?q={search_term_string}",
+    "query-input": "required name=search_term_string",
+  },
+};
+
 const faqJsonLd = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
@@ -32,6 +44,10 @@ const faqJsonLd = {
 export default function HomePage() {
   return (
     <div className="min-h-screen">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
+      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
